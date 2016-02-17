@@ -25,7 +25,7 @@ To come out of ssh:
 `Esc-d` 
 
 
-**4. delete** the entire command line ****
+**4. delete the entire command line **
 
 `Ctrl+F+W`   (The cursor should be at the end of the command line)
 `Ctrl+U` deletes everything to the left of cursor
@@ -57,7 +57,7 @@ use `sendmail`:
 
 If the mail text in the form of a **file**, sendmail  will send the text into the message.
 ```bash
-`sendmail `c_hbhati@qca.qualcomm.com` < `email.txt
+`sendmail c_hbhati@qca.qualcomm.com < email.txt
 ```
 
 **8. Create a soft link**
@@ -67,15 +67,14 @@ If the mail text in the form of a **file**, sendmail  will send the text into th
 
 **10. To split a file into section  of files according to regex**
 ```bash
-csplit -s --prefix=logfile`  logfileA  `'/^From.*/' '{96}' // put any high number
-rm `logfile```00` // empty file (containing everything up to the first pattern)
+csplit -s --prefix=logfile  logfileA  '/^From.*/' '{96}' // put any high number
+rm logfile00                                             // empty file- contains everything up to the first pattern
 ```
 
 Advanced options:
 ```bash
-csplit -s --prefix=logfile`  logfileA  `'/^From.*/' '{96}' -z // removes empty files
-
-csplit -s --prefix=logfile`  logfileA  `'/^From.*/' '{96}' -z --digits=1 // no 00,01 etc.
+csplit -s --prefix=logfile  logfileA  '/^From.*/' '{96}' -z // removes empty files
+csplit -s --prefix=logfile  logfileA  '/^From.*/' '{96}' -z --digits=1 // no 00,01 etc.
 ```
 
 **11. To split a file into section  of files according to size**
