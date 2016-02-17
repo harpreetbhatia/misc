@@ -68,7 +68,7 @@ If the mail text in the form of a **file**, sendmail  will send the text into th
 **10. To split a file into section  of files according to regex**
 ```bash
 csplit -s --prefix=logfile  logfileA  '/^From.*/' '{96}' // put any high number
-rm logfile00                                             // empty file- contains everything up to the first pattern
+rm logfile00                                             // empty file, i.e. everything uptill the first pattern
 ```
 
 Advanced options:
@@ -82,7 +82,7 @@ csplit -s --prefix=logfile  logfileA  '/^From.*/' '{96}' -z --digits=1 // no 00,
 split --help
 ```
 
-## Cron
+**12. Cron**
 
 Usage:
 ```bash
