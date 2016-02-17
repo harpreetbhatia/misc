@@ -82,7 +82,13 @@ csplit -s --prefix=logfile  logfileA  '/^From.*/' '{96}' -z --digits=1 // no 00,
 split --help
 ```
 
-**12. Cron**
+**12. To copy files from one machine to another** (SCL to GBC):
+```bash
+scp c_hbhati@vl-c-hbhati-scl:~/<filename> ~/
+```
+
+
+**13. Cron**
 
 Usage:
 ```bash
@@ -132,7 +138,4 @@ If you don't see a number, then cron is not running
 The script file-names in cron.d/, cron.daily/, cron.hourly/, etc., should not contain dot(.), otherwise run-parts will skip them.
 So, if you have a cron script backup.sh, analyze-logs.pl in cron.daily/ directory, you'd best to remove the extension names.
 
-**To copy files from one machine to another** (SCL to GBC):
-```bash
-scp c_hbhati@vl-c-hbhati-scl:~/<filename> ~/
-```
+
