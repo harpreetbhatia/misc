@@ -139,3 +139,38 @@ The script file-names in cron.d/, cron.daily/, cron.hourly/, etc., should not co
 So, if you have a cron script backup.sh, analyze-logs.pl in cron.daily/ directory, you'd best to remove the extension names.
 
 
+**14. Bsub**
+
+Syntax:
+```bash
+bsub -P <ptag> -W <runtime> -q <queuename> -R "select[type==<os_system> && mem>XXXX] rusage[mem=XXXX]" <cmd_name>
+```
+
+Usage:
+```bash
+bsub -W 4:0 -R 'select[type==LINUX64] -R rusage[vip_portfolio_plus_qcom=1,ies=1]' -o out_file  -e err_file <cmd_name> 
+```
+The bsub statement means: send a batch job with a wall clock runlimit of 5 hrs (-W) and pick a linux host that can run ies (select[type==LINUX64 && mem>3500])
+
+`-W`  can be `336:0`  (14 hours) max.
+
+`-q`: default queue is Normal
+
+
+**bhosts_match** is used to find hosts in a specific queue that meet     your resource requirements
+
+```bash
+Syntax:
+/pkg/hwtools/bin/bhosts_match -q <queue> -R <resource_requirements>
+```
+Example:
+```bash
+/pkg/hwtools/bin/bhosts_match -q normal -R "select[type==LINUX64 && mem>=30000]" 
+```
+
+**Bqueues** is used to find which queues that you have access   to
+
+Syntax:
+```bash
+Bqueues -u <username>
+```
